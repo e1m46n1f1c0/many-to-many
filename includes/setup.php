@@ -2,7 +2,7 @@
 session_start();
 
 $dbhost = 'localhost';
-$dbname = 'project.many_to_many';
+$dbname = 'many_to_many';
 $dbuser = 'root';
 $dbpass = '';
 
