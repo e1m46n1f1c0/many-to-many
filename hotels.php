@@ -1,6 +1,6 @@
 <?php include "includes/part_header.php"; ?>
 
-<h1>hotel details</h1>
+<h1>Hotel Details</h1>
 
 <?php
 
@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 	$result = mysql_query('SELECT * FROM hotels WHERE id = '.$hotel_id);
 	while ($row = mysql_fetch_assoc($result)) {
 		echo '<h3>'.$row['title'].'<h3>';
-		echo '<p>'.$row['desc'].'<p>';	
+		echo '<p>'.$row['description'].'<p>';	
 	}
 
 	echo "<h4>Categories</h4>";
@@ -21,9 +21,14 @@ if (isset($_GET['id'])) {
 							WHERE categories.id = hotel_categories.category_id
 							AND hotel_categories.hotel_id = '.$hotel_id);
 	while ($row = mysql_fetch_assoc($result)) {
-		echo '<li>'.$row['title'].'</li>';
+		echo '<li>';
+		echo $row['title'];
+		echo '</li>';
 	}
 	echo "</ul>";
+	
+	
+	echo '<a href="controller.php?action=delete-hotel&id='.$hotel_id.'">Delete Hotel</a>';
 }	
 
 // no id found so display all of the hotels
@@ -36,5 +41,32 @@ else {
 	echo "</ul>";	
 }
 ?>
+
+<hr/>
+
+<h2>Add a new Hotel</h2>
+
+<form action="controller.php" method="post" class="clearfix">
+	<input type="hidden" name="action" value="create-hotel"/>
+	
+	<label for="title">Hotel Name:</label>
+	<input type="text" id="title" name="title"/>
+	
+	<label for="description">Hotel Description:</label>
+	<input type="text" id="description" name="description"/>
+	
+	<label for="categories">Hotel Categories:</label>
+	<select id="categories" name="categories[]" multiple size="3">
+		<?php 
+		$result = mysql_query('SELECT * FROM categories');
+		while ($row = mysql_fetch_assoc($result)) {
+			echo '<option value="'.$row['id'].'">';
+			echo $row['title'];
+			echo '</option>';
+		}
+		?>
+	</select>
+	<input type="submit" value="Add"/>
+</form>
 
 <?php include "includes/part_footer.php"; ?>

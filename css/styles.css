@@ -8,11 +8,12 @@ header a {color:white; text-decoration:none; display:inline-block; padding:4px 1
 header a:hover {color:white; background:red;}
 
 /* login page */
-form label {width:100px; display:inline-block; clear:both; float:left;}
-form input {width:150px; display:inline-block; margin-bottom:5px;float:left;}
-form input[type=submit] {clear:both; width:auto; background:#555; padding:5px 12px; color:white; border:none; border-radius:3px;font-size:18px;} 
+form label {width:170px; display:inline-block; clear:both; float:left;}
+form input {width:200px; display:inline-block; margin-bottom:5px; float:left;}
+form select {width:205px; float:left;}
+form input[type=submit] {clear:both; width:auto; background:#555; padding:5px 12px; margin-top:20px; color:white; border:none; border-radius:3px; font-size:18px;} 
 
 /* footer section */
-footer {border-top: 1px solid #555; padding-top:5px; margin-top:20px;}
+footer {clear:both; border-top: 1px solid #555; padding-top:5px; margin-top:20px;}
 footer a {display:inline-block; color:#333; text-decoration:none; padding-right:10px; margin-right:10px; border-right:1px solid #ccc;}
 footer a:last-child {border:none;}

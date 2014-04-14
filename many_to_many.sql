@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2014 at 03:59 PM
--- Server version: 5.5.27
--- PHP Version: 5.4.7
+-- Generation Time: Apr 14, 2014 at 05:49 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.19
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `.many_to_many`
+-- Database: `project.many_to_many`
 --
+CREATE DATABASE IF NOT EXISTS `many_to_many` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `many_to_many`;
 
 -- --------------------------------------------------------
 
@@ -51,15 +53,15 @@ INSERT INTO `categories` (`id`, `title`) VALUES
 CREATE TABLE IF NOT EXISTS `hotels` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(20) NOT NULL,
-  `desc` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `hotels`
 --
 
-INSERT INTO `hotels` (`id`, `title`, `desc`) VALUES
+INSERT INTO `hotels` (`id`, `title`, `description`) VALUES
 (1, 'Rochestown Park', 'A lovely place'),
 (2, 'Maryborough House', 'Lovely gardens');
 

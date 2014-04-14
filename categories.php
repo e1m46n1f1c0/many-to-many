@@ -10,7 +10,10 @@ if (isset($_GET['id'])) {
 	$category_id = $_GET['id'];
 	
 	//display the category
-	echo "<h4>todo</h4>";
+	$result = mysql_query('SELECT * FROM categories WHERE id = '.$category_id);
+	while ($row = mysql_fetch_assoc($result)) 
+		echo '<h4>'.$row['title'].'</h4>';
+	
 	
 	// display all the hotels that have this category
 	echo '<ul>';
@@ -19,7 +22,7 @@ if (isset($_GET['id'])) {
 							WHERE hotels.id = hotel_categories.hotel_id
 							AND hotel_categories.category_id = '.$category_id);
 	while ($row = mysql_fetch_assoc($result)) {
-		echo '<li><a href="categories.php?id='.$row['id'].'">'.$row['title'].'</a></li>';
+		echo '<li><a href="hotels.php?id='.$row['id'].'">'.$row['title'].'</a></li>';
 	}
 	echo '</ul>';
 }
